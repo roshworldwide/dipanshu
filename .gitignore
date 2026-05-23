@@ -34,3 +34,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# inquiry data (do not commit submissions)
+/data/inquiries.json
+
+# playwright artefacts
+/playwright-report/
+/test-results/

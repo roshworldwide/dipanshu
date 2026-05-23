@@ -1,0 +1,49 @@
+/* ------------------------------------------------------------------ *
+ *  VENTURE COLLECTIVE — DESIGN TOKEN LAYER
+ *  Single source of truth. Mirrored into tailwind.config.ts.
+ * ------------------------------------------------------------------ */
+
+:root {
+  /* -- Surface -- */
+  --bg-base: #07070a; /* near-black, slight blue */
+  --bg-elevated: #0c0c11;
+  --bg-card: rgba(255, 255, 255, 0.025);
+  --bg-card-hover: rgba(255, 255, 255, 0.045);
+
+  /* -- Borders / hairlines -- */
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --border-strong: rgba(255, 255, 255, 0.12);
+
+  /* -- Foreground -- */
+  --fg-primary: #f5f5f7; /* Apple white */
+  --fg-secondary: rgba(245, 245, 247, 0.72);
+  --fg-tertiary: rgba(245, 245, 247, 0.48);
+  --fg-quaternary: rgba(245, 245, 247, 0.28);
+
+  /* -- Aurora (WebGL + bloom tints only) -- */
+  --accent-aurora-1: #6e7bff;
+  --accent-aurora-2: #9ae6ff;
+  --accent-aurora-3: #ffb7c5;
+  --accent-aurora-4: #b6ffe9;
+
+  /* -- Easing language -- */
+  --ease-standard: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-emphasized: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* -- Rhythm -- */
+  --gutter: clamp(24px, 6vw, 96px);
+  --container: 1280px;
+
+  /* -- Type families --
+     SF Pro is Apple-proprietary and cannot be legally redistributed.
+     On the target hardware (M1 macOS / iOS / Safari) -apple-system and
+     BlinkMacSystemFont resolve to the genuine San Francisco / SF Pro
+     system face — zero download, pixel-identical. Inter is a defensive
+     fallback only and never the rendered face on Apple platforms. */
+  --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display",
+    "SF Pro Text", "Inter", system-ui, sans-serif;
+  --font-text: -apple-system, BlinkMacSystemFont, "SF Pro Text",
+    "SF Pro Display", "Inter", system-ui, sans-serif;
+  --font-serif: ui-serif, "New York", "Iowan Old Style", "Apple Garamond",
+    Georgia, "Times New Roman", serif;
+}
