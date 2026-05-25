@@ -5,7 +5,9 @@ import { m, useMotionValue, useSpring } from "framer-motion";
 
 /**
  * Custom cursor — a 10px ring (mix-blend difference) with a 3px dot.
- * Over interactive elements the ring grows to 36px and the dot fades.
+ * Over interactive elements the ring grows to 36px; the dot stays put
+ * and brightens slightly so the cursor never feels "lost" inside the
+ * larger ring (a common gripe with the original Apple-style recipe).
  * Position is driven via translate3d only; never top/left.
  *
  * Disabled entirely on coarse pointers and under reduced-motion —
@@ -72,7 +74,9 @@ export function CustomCursor() {
         }}
         transition={{ type: "spring", stiffness: 320, damping: 22 }}
       />
-      {/* Dot — tracks the raw pointer with no lag. */}
+      {/* Dot — tracks the raw pointer with no lag. Always visible;
+          over interactive elements it scales up subtly so the cursor
+          reads inside the larger ring rather than vanishing. */}
       <m.div
         className="absolute left-0 top-0 h-[3px] w-[3px] rounded-full bg-fg-primary"
         style={{
@@ -82,7 +86,7 @@ export function CustomCursor() {
           translateX: "-50%",
           translateY: "-50%",
         }}
-        animate={{ opacity: active ? 0 : 1, scale: active ? 0 : 1 }}
+        animate={{ opacity: 1, scale: active ? 1.4 : 1 }}
         transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
       />
     </div>
