@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Section } from "@/components/layout/Section";
 import { Reveal } from "@/components/layout/Reveal";
-import { inquiry } from "@/content/site";
+import { contact } from "@/content/site";
 import { inquirySchema, type InquiryInput } from "@/lib/inquiry-schema";
 import { EASE_EMPHASIZED, EASE_STANDARD } from "@/lib/motion";
 import { track } from "@/lib/track";
@@ -66,7 +66,7 @@ function Field({
   );
 }
 
-export function Inquiry() {
+export function Contact() {
   const [submitted, setSubmitted] = useState(false);
   const checkId = useId();
 
@@ -110,16 +110,14 @@ export function Inquiry() {
         });
       }
     } catch {
-      setError("root", {
-        message: "Network error. Please try again.",
-      });
+      setError("root", { message: "Network error. Please try again." });
     }
   };
 
   return (
     <Section
-      id="inquiry"
-      track="inquiry"
+      id="contact"
+      track="contact"
       scene={false}
       rhythm="lg"
       className="bg-bg-base"
@@ -128,16 +126,16 @@ export function Inquiry() {
         {/* Left — heading */}
         <div className="md:pt-7">
           <Reveal>
-            <p className="eyebrow">{inquiry.eyebrow}</p>
+            <p className="eyebrow">{contact.eyebrow}</p>
           </Reveal>
           <Reveal delay={0.06}>
-            <h2 className="mt-6 font-display text-[clamp(30px,4.5vw,44px)] font-medium leading-[1.08] tracking-[-0.035em] text-fg-primary">
-              {inquiry.title}
+            <h2 className="mt-6 max-w-[18ch] font-display text-[clamp(30px,4.5vw,56px)] font-medium leading-[1.08] tracking-[-0.035em] text-fg-primary">
+              {contact.title}
             </h2>
           </Reveal>
           <Reveal delay={0.12}>
             <p className="mt-6 max-w-[42ch] text-body-lg text-fg-secondary">
-              {inquiry.subhead}
+              {contact.subhead}
             </p>
           </Reveal>
         </div>
@@ -154,10 +152,10 @@ export function Inquiry() {
               >
                 <span className="block h-px w-20 bg-aurora-2" />
                 <h3 className="mt-10 font-display text-headline-lg font-medium tracking-[-0.02em] text-fg-primary">
-                  {inquiry.success.title}
+                  {contact.success.title}
                 </h3>
                 <p className="mt-4 max-w-[40ch] text-body-lg text-fg-secondary">
-                  {inquiry.success.subhead}
+                  {contact.success.subhead}
                 </p>
               </m.div>
             ) : (
@@ -296,7 +294,7 @@ export function Inquiry() {
                     className="absolute inset-0 origin-left scale-x-0 bg-fg-primary transition-transform duration-[240ms] ease-standard group-hover:scale-x-100"
                   />
                   <span className="relative">
-                    {isSubmitting ? "Sending…" : "Submit Inquiry"}
+                    {isSubmitting ? "Sending…" : contact.cta}
                   </span>
                 </button>
               </m.form>

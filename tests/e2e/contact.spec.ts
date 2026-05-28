@@ -1,19 +1,19 @@
 import { test, expect } from "@playwright/test";
 
 /**
- * Smoke test: hero copy is visible, the inquiry form submits, and the
+ * Smoke test: hero copy is visible, the contact form submits, and the
  * success state appears.
  */
-test("hero renders and the inquiry form submits", async ({ page }) => {
+test("hero renders and the contact form submits", async ({ page }) => {
   await page.goto("/");
 
   // Hero copy is present.
   await expect(
-    page.getByRole("heading", { name: /Great companies require both/i }),
+    page.getByRole("heading", { name: /Steadiness\. Depth\. Character\./i }),
   ).toBeVisible();
 
-  // Jump to the inquiry section.
-  await page.locator("#inquiry").scrollIntoViewIfNeeded();
+  // Jump to the contact section.
+  await page.locator("#contact").scrollIntoViewIfNeeded();
 
   await page.fill("#fullName", "Jane Founder");
   await page.fill("#company", "Acme Inc.");
@@ -23,7 +23,7 @@ test("hero renders and the inquiry form submits", async ({ page }) => {
   // Cognitive check — the SVG asks 2 + 3.
   await page.getByLabel("What is two plus three?").fill("5");
 
-  await page.getByRole("button", { name: /submit inquiry/i }).click();
+  await page.getByRole("button", { name: /begin a conversation/i }).click();
 
   // Success state crossfades in.
   await expect(
@@ -31,13 +31,13 @@ test("hero renders and the inquiry form submits", async ({ page }) => {
   ).toBeVisible({ timeout: 10_000 });
 });
 
-test("the inquiry form blocks an invalid submission", async ({ page }) => {
+test("the contact form blocks an invalid submission", async ({ page }) => {
   await page.goto("/");
-  await page.locator("#inquiry").scrollIntoViewIfNeeded();
+  await page.locator("#contact").scrollIntoViewIfNeeded();
 
   await page.fill("#fullName", "J");
   await page.fill("#email", "nope");
-  await page.getByRole("button", { name: /submit inquiry/i }).click();
+  await page.getByRole("button", { name: /begin a conversation/i }).click();
 
   await expect(page.getByText(/enter your full name/i)).toBeVisible();
 });

@@ -6,17 +6,17 @@ import { ScrollProvider } from "@/components/layout/ScrollProvider";
 import { CustomCursor } from "@/components/layout/CustomCursor";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://venture-collective.example"),
+  metadataBase: new URL("https://onecollective.example"),
   title: {
-    default: "Venture Collective — Vision and execution, built as one system",
-    template: "%s · Venture Collective",
+    default: "One Collective — Steadiness. Depth. Character.",
+    template: "%s · One Collective",
   },
   description:
-    "A selective venture collective working across product, growth, systems, execution, and long-term strategic infrastructure.",
+    "A curated network of independent specialists brought together through shared standards, long-term thinking, and dependable execution.",
   openGraph: {
-    title: "Venture Collective",
+    title: "One Collective",
     description:
-      "A selective venture collective. Long-term thinking, structured execution.",
+      "Steadiness. Depth. Character. A curated network of independent specialists.",
     type: "website",
   },
   robots: { index: true, follow: true },

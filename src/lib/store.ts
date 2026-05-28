@@ -4,15 +4,7 @@
  */
 import { create } from "zustand";
 
-export type SectionId =
-  | "hero"
-  | "manifesto"
-  | "vision"
-  | "philosophy"
-  | "depth"
-  | "team"
-  | "work"
-  | "inquiry";
+export type SectionId = "hero" | "work" | "approach" | "collective" | "contact";
 
 interface SceneState {
   /** 0 → 1 progress through the document. Drives camera dolly. */
